@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đỗ Trung Kiên - Link Bio</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
         * {
@@ -13,130 +16,301 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Poppins', sans-serif;
+            /* Nền công nghệ xanh dương neon - xu hướng 2026 */
+            background: linear-gradient(-45deg, 
+                #0a0e27,      /* Đen vũ trụ */
+                #1a1f4c,      /* Xanh đậm tech */
+                #0f3460,      /* Xanh dương đậm */
+                #16213e,      /* Navy tech */
+                #0c1445       /* Indigo vũ trụ */
+            );
+            background-size: 600% 600%;
+            animation: techGradient 10s ease infinite;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 20px;
             overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Neon glow particles */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(3px 3px at 20px 30px, #00d4ff, transparent),
+                radial-gradient(2px 2px at 80px 80px, #00ff88, transparent),
+                radial-gradient(2px 2px at 200px 120px, #ff00ff, transparent),
+                radial-gradient(1px 1px at 300px 200px, #00d4ff, transparent),
+                radial-gradient(2px 2px at 100px 250px, #00ff88, transparent);
+            background-repeat: repeat;
+            background-size: 400px 300px;
+            animation: neonSparkle 25s linear infinite;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        @keyframes techGradient {
+            0% { background-position: 0% 50%; }
+            15% { background-position: 100% 20%; }
+            30% { background-position: 80% 90%; }
+            45% { background-position: 20% 100%; }
+            60% { background-position: 60% 10%; }
+            75% { background-position: 0% 80%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes neonSparkle {
+            from { transform: translateY(0px) rotate(0deg); opacity: 0.8; }
+            to { transform: translateY(-200px) rotate(360deg); opacity: 0.4; }
+        }
+
+        /* Neon grid overlay */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0,212,255,0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,212,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: 2;
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
         }
 
         .card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(20px);
-            border-radius: 30px;
-            padding: 40px 30px;
+            background: rgba(10, 14, 39, 0.85); /* Đen tech trong suốt */
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border-radius: 25px;
+            padding: 50px 40px;
             width: 100%;
-            max-width: 400px;
+            max-width: 460px;
             text-align: center;
-            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 
+                0 35px 70px rgba(0, 0, 0, 0.5),
+                0 0 50px rgba(0, 212, 255, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.4);
             position: relative;
-            animation: float 6s ease-in-out infinite;
+            animation: techFloat 8s ease-in-out infinite;
+            z-index: 10;
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+        @keyframes techFloat {
+            0%, 100% { 
+                transform: translateY(0px) rotate(0deg);
+                box-shadow: 0 35px 70px rgba(0, 0, 0, 0.5), 0 0 50px rgba(0, 212, 255, 0.3);
+            }
+            33% { 
+                transform: translateY(-15px) rotate(2deg);
+                box-shadow: 0 45px 90px rgba(0, 0, 0, 0.6), 0 0 70px rgba(0, 212, 255, 0.5);
+            }
+            66% { 
+                transform: translateY(-8px) rotate(-1deg);
+                box-shadow: 0 40px 80px rgba(0, 0, 0, 0.55), 0 0 60px rgba(0, 212, 255, 0.4);
+            }
+        }
+
+        .avatar {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid rgba(0, 212, 255, 0.8);
+            box-shadow: 
+                0 20px 40px rgba(0,0,0,0.4),
+                0 0 30px rgba(0, 212, 255, 0.6),
+                inset 0 2px 0 rgba(255,255,255,0.3);
+            margin-bottom: 25px;
+            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .avatar:hover {
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: 
+                0 30px 60px rgba(0,0,0,0.5),
+                0 0 50px rgba(0, 212, 255, 0.9),
+                inset 0 2px 0 rgba(255,255,255,0.5);
+            border-color: #00d4ff;
         }
 
         .name {
-            font-size: 2.2em;
-            color: white;
+            font-size: 2.4em;
+            background: linear-gradient(45deg, #00d4ff, #ffffff, #00ff88);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin-bottom: 10px;
-            font-weight: 700;
+            font-weight: 800;
+            letter-spacing: 3px;
+            text-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+            filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.3));
         }
 
         .description {
             color: rgba(255, 255, 255, 0.9);
-            line-height: 1.6;
-            margin-bottom: 30px;
-            font-size: 1.1em;
+            line-height: 1.8;
+            margin-bottom: 35px;
+            font-size: 1.15em;
+            font-weight: 400;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
 
         .buttons {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 20px;
         }
 
         .btn {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 15px;
-            padding: 18px 24px;
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
+            gap: 20px;
+            padding: 20px 30px;
+            background: rgba(0, 212, 255, 0.15);
+            color: #ffffff;
             text-decoration: none;
             border-radius: 50px;
-            font-size: 1em;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
+            font-size: 1.15em;
+            font-weight: 600;
+            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+            border: 2px solid rgba(0, 212, 255, 0.4);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(25px);
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(0,212,255,0.3), 
+                rgba(255,255,255,0.2),
+                transparent
+            );
+            transition: left 0.7s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
         }
 
         .btn:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .btn:active {
-            transform: translateY(0);
+            background: rgba(0, 212, 255, 0.3);
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 
+                0 25px 50px rgba(0, 212, 255, 0.4),
+                0 0 40px rgba(0, 212, 255, 0.6);
+            border-color: rgba(0, 212, 255, 0.8);
         }
 
         .btn i {
-            font-size: 1.3em;
+            font-size: 1.5em;
+            transition: all 0.5s ease;
+            width: 30px;
         }
+
+        /* Hover colors cho từng icon */
+        .btn:hover .fa-facebook-f { color: #1877F2; text-shadow: 0 0 15px #1877F2; }
+        .btn:hover .fa-tiktok { 
+            color: #000; 
+            text-shadow: 0 0 15px #00f2fe, 0 0 25px #fe0979;
+            filter: drop-shadow(0 0 10px #00f2fe);
+        }
+        .btn:hover .fa-whatsapp { color: #25D366; text-shadow: 0 0 15px #25D366; }
+        .btn:hover .fa-telegram-plane { color: #0088cc; text-shadow: 0 0 15px #0088cc; }
+        .btn:hover .fa-instagram { color: #E1306C; text-shadow: 0 0 15px #E1306C; }
+        .btn:hover .fa-camera { color: #FFD700; text-shadow: 0 0 20px #FFD700; }
 
         .floating-btn {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
-            background: rgba(255, 255, 255, 0.2);
+            bottom: 40px;
+            right: 40px;
+            width: 75px;
+            height: 75px;
+            background: rgba(0, 212, 255, 0.25);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5em;
-            color: white;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            font-size: 1.8em;
+            color: #ffffff;
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.4),
+                0 0 40px rgba(0, 212, 255, 0.6);
+            backdrop-filter: blur(25px);
+            border: 2px solid rgba(0, 212, 255, 0.5);
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
             z-index: 1000;
+            animation: neonPulse 1.5s infinite;
+        }
+
+        @keyframes neonPulse {
+            0% { 
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 40px rgba(0, 212, 255, 0.6);
+            }
+            50% { 
+                box-shadow: 
+                    0 25px 50px rgba(0, 0, 0, 0.5), 
+                    0 0 60px rgba(0, 212, 255, 1),
+                    inset 0 0 20px rgba(0, 212, 255, 0.3);
+            }
+            100% { 
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 40px rgba(0, 212, 255, 0.6);
+            }
         }
 
         .floating-btn:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: scale(1.1);
+            background: rgba(0, 212, 255, 0.5);
+            transform: scale(1.2) rotate(360deg);
+            box-shadow: 
+                0 30px 60px rgba(0, 0, 0, 0.6),
+                0 0 80px rgba(0, 212, 255, 1);
         }
 
         @media (max-width: 480px) {
             .card {
-                padding: 30px 20px;
-                margin: 10px;
+                padding: 40px 30px;
+                margin: 15px;
             }
-
             .name {
-                font-size: 1.8em;
+                font-size: 2.1em;
             }
-
             .btn {
-                padding: 16px 20px;
+                padding: 18px 26px;
+                gap: 16px;
             }
         }
     </style>
 </head>
 <body>
     <div class="card">
+        <img src="c:\Users\TRUNG KIEN\Pictures\k2.jpg" alt="Đỗ Trung Kiên" class="avatar">
+        
         <h1 class="name">Đỗ Trung Kiên</h1>
         <p class="description">Chào mừng bạn đến với trang cá nhân của tôi!</p>
         <div class="buttons">
@@ -147,7 +321,7 @@
                 <i class="fab fa-tiktok"></i> TikTok
             </a>
             <a href="https://zalo.me/0387999288" class="btn" target="_blank">
-                <i class="fab fa-whatsapp"></i> Zalo <!-- Sử dụng icon tương tự vì Zalo không có icon chuẩn -->
+                <i class="fab fa-whatsapp"></i> Zalo
             </a>
             <a href="https://t.me/trggkien12" class="btn" target="_blank">
                 <i class="fab fa-telegram-plane"></i> Telegram
@@ -155,16 +329,18 @@
             <a href="https://www.instagram.com/twk.ine24/" class="btn" target="_blank">
                 <i class="fab fa-instagram"></i> Instagram
             </a>
+            <a href="https://locket.cam/twl.ine24" class="btn" target="_blank">
+                <i class="fas fa-camera"></i> Locket
+            </a>
         </div>
     </div>
 
-    <div class="floating-btn" onclick="openPortfolio()">
+    <div class="floating-btn" onclick="openPortfolio()" title="Xem Portfolio">
         <i class="fas fa-play"></i>
     </div>
 
     <script>
         function openPortfolio() {
-            // Thay bằng link video hoặc portfolio thực tế
             window.open('https://yourportfolio.com', '_blank');
         }
     </script>
